@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Se Veja</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+    }
+
+    .modal {
+      margin: 0 auto;
+      width: 90vw;
+      max-width: 300px;
+      aspect-ratio: 3 / 4;
+      border-radius: 50% / 40%;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      background-color: #000;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Estilo para telas maiores */
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 2.5em;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>se veja</h1>
+  <p>essa é uma mensagem para você</p>
+
+  <div class="modal">
+    <video id="camera" autoplay playsinline></video>
+  </div>
+
+  <script>
+    async function iniciarCamera() {
+      try {
+        const constraints = {
+          video: { facingMode: "user" }, // câmera frontal
+          audio: false
+        };
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        const video = document.getElementById('camera');
+        video.srcObject = stream;
+      } catch (err) {
+        alert("Erro ao acessar a câmera: " + err.message);
+        console.error(err);
+      }
+    }
+
+    window.addEventListener("load", iniciarCamera);
+  </script>
+</body>
+</html>
