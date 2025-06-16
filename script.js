@@ -5,7 +5,7 @@ async function iniciarCamera() {
       audio: false,
     };
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    const video = document.getElementsByClassName("camera");
+    const video = document.getElementById("camera");
     video.srcObject = stream;
   } catch (err) {
     alert("Erro ao acessar a câmera: " + err.message);
