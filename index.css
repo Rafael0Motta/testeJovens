@@ -93,4 +93,20 @@ video {
     height: 100%;
     object-fit: cover;
     border-radius: 50% / 40%;
+    transform: scaleX(-1);
+}
+
+.arrowButton>img {
+    width: 35px;
+}
+
+.arrowButton {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
